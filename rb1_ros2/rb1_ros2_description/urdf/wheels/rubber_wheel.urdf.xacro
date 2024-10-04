@@ -59,7 +59,7 @@
         </geometry>
 
 <!-- for increasing rolling friction -->
-		<surface>
+		<!-- <surface>
 			<bounce>
 				<restitution_coefficient>.5</restitution_coefficient>
 			</bounce>
@@ -79,7 +79,7 @@
                 </ode>
 			</contact>
 		</surface>
-
+ -->
       </collision>
       <inertial>
         <mass value="${wheel_mass}" />
