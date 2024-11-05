@@ -1,0 +1,12 @@
+<?xml version='1.0' ?>
+<launch>
+    <!-- <include file="$(find-pkg-share rb1_ros2_description)/launch/rst_rb1_ros2_xacro.launch.py"/> -->
+
+    <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" exec="robot_state_publisher">
+    </node> -->
+    <node name="joint_state_publisher" pkg="joint_state_publisher" exec="joint_state_publisher">
+        <remap from="/robot_description" to="/rb1_robot/robot_description" />
+    </node>
+    <node name="tf2_web_republisher" pkg="tf2_web_republisher_py" exec="tf2_web_republisher">
+    </node>
+</launch>

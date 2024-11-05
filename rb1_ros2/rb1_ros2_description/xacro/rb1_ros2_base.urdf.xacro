@@ -54,7 +54,8 @@
 	<xacro:property name="omni_front_y" value="0.1535" />
 	<!-- <xacro:property name="omni_front_z" value="0.0270" /> -->
 	<!-- <xacro:property name="omni_front_z" value="0.031" /> -->
-	<xacro:property name="omni_front_z" value="0.034" />
+	<!-- <xacro:property name="omni_front_z" value="0.034" /> -->
+	<xacro:property name="omni_front_z" value="0.035" />
 
 
     <!-- ******************* -->
