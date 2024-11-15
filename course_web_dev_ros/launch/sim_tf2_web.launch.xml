@@ -8,5 +8,7 @@
         <remap from="/robot_description" to="/rb1_robot/robot_description" />
     </node>
     <node name="tf2_web_republisher" pkg="tf2_web_republisher_py" exec="tf2_web_republisher">
+        <!-- <remap from="/tf" to="/cleaner_2/tf" />
+        <remap from="/tf/static" to="/cleaner_2/tf_static" /> -->
     </node>
 </launch>

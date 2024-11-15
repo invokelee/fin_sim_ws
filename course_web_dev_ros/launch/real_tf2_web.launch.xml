@@ -1,0 +1,11 @@
+<?xml version='1.0' ?>
+<launch>
+    <node name="joint_state_publisher" pkg="joint_state_publisher" exec="joint_state_publisher">
+        <remap from="/robot_description" to="/cleaner_2/robot_description" />
+    </node>
+    <node name="tf2_web_republisher" pkg="tf2_web_republisher_py" exec="tf2_web_republisher">
+        <remap from="/tf" to="/cleaner_2/tf" />
+        <remap from="/tf/static" to="/cleaner_2/tf_static" />
+    </node>
+
+</launch>
