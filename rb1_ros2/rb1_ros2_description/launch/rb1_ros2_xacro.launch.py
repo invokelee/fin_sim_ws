@@ -68,7 +68,9 @@ def generate_launch_description():
         package='gazebo_ros',
         executable='spawn_entity.py',
         arguments=['-entity', robot_name_1, '-x', '13.0', '-y', '-17.5', '-z', '0.0', '-Y', '3.14',
-                   '-topic', robot_name_1+'/robot_description']
+                   '-topic', robot_name_1+'/robot_description',
+                   '-timeout', '180.0'
+                  ]
     )
 
     load_joint_state_controller = ExecuteProcess(
