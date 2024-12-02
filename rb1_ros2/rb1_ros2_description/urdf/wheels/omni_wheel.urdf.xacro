@@ -53,13 +53,6 @@
         </geometry>
       </collision>
 
-      <!--collision>
-      <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
-       <geometry>
-         <sphere radius="${omni_wheel_radius}"/>
-       </geometry>
-     </collision-->
-
       <inertial>
         <mass value="${wheel_mass}" />
         <origin xyz="0 0 0" />
@@ -77,19 +70,6 @@
 		<material>Gazebo/Black</material>
 		<turnGravityOff>false</turnGravityOff>
     </gazebo>
-
-    <!--gazebo reference="${name}_wheel">
-		<kp>500000.0</kp>
-		<kd>10.0</kd>
-		<mu1>10</mu1>
-		<mu2>10</mu2>
-		<fdir1>1 0 0</fdir1>
-		<maxVel>1.0</maxVel>
-		<minDepth>0.003</minDepth>
-		<material>Gazebo/Black</material>
-		<turnGravityOff>false</turnGravityOff>
-		<implicitSpringDamper>1</implicitSpringDamper>
-    </gazebo-->
 
 
   </xacro:macro>

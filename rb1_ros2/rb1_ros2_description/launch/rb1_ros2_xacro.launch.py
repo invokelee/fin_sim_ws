@@ -9,6 +9,7 @@ from ament_index_python.packages import get_package_prefix
 from launch_ros.descriptions import ParameterValue
 from launch.event_handlers import OnProcessExit
 
+
 def generate_launch_description():
 
     description_package_name = "rb1_ros2_description"
@@ -60,7 +61,7 @@ def generate_launch_description():
         name='robot_state_publisher',
         namespace=robot_name_1,
         parameters=[{'use_sim_time': use_sim_time,
-                     'robot_description': ParameterValue(Command(['xacro ', robot_desc_path, ' robot_name:=', robot_name_1]), value_type=str)}],
+                     'robot_description': ParameterValue(Command(['xacro ', robot_desc_path, ' robot_name:=', robot_name_1]), value_type=None)}],
         output="screen"
     )
 
@@ -70,35 +71,32 @@ def generate_launch_description():
         arguments=['-entity', robot_name_1, '-x', '13.0', '-y', '-17.5', '-z', '0.0', '-Y', '3.14',
                    '-topic', robot_name_1+'/robot_description',
                    '-timeout', '180.0'
-                  ]
+                   ]
     )
 
     load_joint_state_controller = ExecuteProcess(
         cmd=['ros2', 'control', 'load_controller', '--set-state', 'active',
-            'joint_state_broadcaster'],
+             'joint_state_broadcaster'],
         output='screen'
     )
-    
+
     load_diff_drive_controller = ExecuteProcess(
         cmd=['ros2', 'control', 'load_controller', '--set-state', 'active',
-            'diffbot_base_controller'],
+             'diffbot_base_controller'],
         output='screen'
     )
 
     load_diff_position_controller = ExecuteProcess(
         cmd=['ros2', 'control', 'load_controller', '--set-state', 'active',
-            'position_controller'],
+             'position_controller'],
         output='screen'
     )
-
-    
-
 
     return LaunchDescription([
         RegisterEventHandler(
             event_handler=OnProcessExit(
                 target_action=spawn_robot1,
-                on_exit = [
+                on_exit=[
                     LogInfo(msg='After 3 sec. controller will be loaded...'),
                     TimerAction(
                         period=3.0,
@@ -114,17 +112,17 @@ def generate_launch_description():
             event_handler=OnProcessExit(
                 target_action=load_joint_state_controller,
                 on_exit=[load_diff_drive_controller],
-                
+
             )
         ),
         RegisterEventHandler(
             event_handler=OnProcessExit(
                 target_action=load_joint_state_controller,
                 on_exit=[load_diff_position_controller],
-                
+
             )
         ),
-        
+
         # gazebo,
         rsp_robot1,
         spawn_robot1,

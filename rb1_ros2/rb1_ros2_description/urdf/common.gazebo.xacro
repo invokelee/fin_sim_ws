@@ -7,9 +7,6 @@
             <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
                 <robot_param_node>/rb1_robot/robot_state_publisher</robot_param_node>
                 <parameters>$(find rb1_ros2_description)/config/rb1_controller.yaml</parameters>
-                <ros>
-                    <remapping>/controller_manager/robot_description:=/rb1_robot/robot_description</remapping>
-                </ros>
             </plugin>
         </gazebo>
 	</xacro:macro>

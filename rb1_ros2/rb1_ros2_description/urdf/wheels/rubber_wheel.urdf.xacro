@@ -58,28 +58,6 @@
           <cylinder length="${wheel_height}" radius="${wheel_radius}" />
         </geometry>
 
-<!-- for increasing rolling friction -->
-		<!-- <surface>
-			<bounce>
-				<restitution_coefficient>.5</restitution_coefficient>
-			</bounce>
-			<friction>
-				<ode>
-					<mu>10</mu>
-					<mu2>10</mu2>
-					<fdir1>1 0 0</fdir1>
-					<slip1>0</slip1>
-					<slip2>0</slip2>
-				</ode>
-			</friction>
-			<contact>
-				<ode>
-                    <kp>1e15</kp>
-                    <kd>1e13</kd>                
-                </ode>
-			</contact>
-		</surface>
- -->
       </collision>
       <inertial>
         <mass value="${wheel_mass}" />

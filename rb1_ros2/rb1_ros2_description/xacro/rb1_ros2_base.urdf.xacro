@@ -119,14 +119,6 @@
 		<origin xyz="0.210 0.0 0.21" rpy="0 3.1416 3.1416"/>
 	</xacro:sensor_hokuyo_ust20lx>
 
-	<!-- <xacro:sensor_imu_hector prefix="$(arg prefix)imu" parent="$(arg prefix)base_link">
-		<origin xyz="0.002 0.053 0.1485" rpy="0 0 0"/>
-	</xacro:sensor_imu_hector> -->
-
-	<!-- <xacro:sensor_orbbec_astra prefix="$(arg prefix)front_rgbd_camera" parent="$(arg prefix)base_link" prefix_topic="front_rgbd_camera">
-		<origin xyz="0.234 0.0 0.092" rpy="0 0 0"/>
-	</xacro:sensor_orbbec_astra> -->
-
     <gazebo reference="$(arg prefix)front_laser_base_link">
         <sensor name="lidar" type="ray">
           <always_on>true</always_on>
@@ -154,7 +146,6 @@
           </ray>
           <plugin name="scan" filename="libgazebo_ros_ray_sensor.so">
               <ros>
-                  <!-- <namespace>${robot_name}</namespace> -->
                   <remapping>~/out:=scan</remapping>
               </ros>
               <output_type>sensor_msgs/LaserScan</output_type>
@@ -170,9 +161,9 @@
 
     <!-- ROS2 control - diff drive -->
 
-    <ros2_control name="diff_drive" type="system">
+    <ros2_control name="diff_drive_test" type="system">
     
-        <hardware>
+        <hardware name="diff_drive_test">
           <plugin>gazebo_ros2_control/GazeboSystem</plugin>
         </hardware>
     
@@ -200,7 +191,7 @@
 
     <!-- ROS2 control - position -->
     <ros2_control name="joint_position" type="system">
-        <hardware>
+        <hardware name="joint_position">
             <plugin>gazebo_ros2_control/GazeboSystem</plugin>
         </hardware>
         
